@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="register.php">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+      </div>
+      <div>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" />
+      </div>
+      <div>
+        <label for="intro"> Introduce Yourself</label>
+        <br />
+        <textarea id="intro"></textarea>
+      </div>
+
+      <div>
+        <p>Which One is The Best Player</p>
+        <input type="radio" name="player" id="ronaldo" />
+        <label for="ronaldo">Cristiano Ronaldo</label>
+        <input type="radio" name="player" id="messi" />
+        <label for="messi">Lionel Messi</label>
+        <input type="radio" name="player" id="Icardi" />
+        <label for="Icardi">Mauro Icardi</label>
+      </div>
+      <div>
+        <p>Choose the player that you love</p>
+        <input type="checkbox" name="" id="ronaldo" />
+        <label for="ronaldo">Cristiano Ronaldo</label>
+        <input type="checkbox" name="" id="messi" />
+        <label for="messi">Lionel Messi</label>
+        <input type="checkbox" name="" id="Icardi" />
+        <label for="Icardi">Mauro Icardi</label>
+      </div>
+      <div>
+        <label for="city"> Which City R U In?</label>
+        <select id="city">
+          <option value="77">Yalova</option>
+          <option value="34">İstanbul</option>
+          <option value="81">Düzce</option>
+        </select>
+      </div>
+      <div>
+        <label for="bday">Birthday</label>
+        <input type="date" id="bday" />
+      </div>
+
+      <button type="submit">Send</button>
+      <button type="reset">Clear Form</button>
+    </form>
+  </body>
+</html>
