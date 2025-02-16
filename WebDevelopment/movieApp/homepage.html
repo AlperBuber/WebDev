@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      nav {
+        margin: 21px;
+        font-size: 32px;
+      }
+      header {
+        display: flex;
+        background-color: #050a30;
+        justify-content: space-between;
+        color: rgb(182, 232, 20);
+      }
+      main {
+        display: flex;
+        justify-content: space-between;
+        background-color: #7ec8e3;
+      }
+      section {
+        display: flex;
+      }
+      #title {
+        margin: 21px;
+      }
+      a {
+        color: #e1ffbb;
+      }
+      ul {
+        list-style-type: none;
+        padding-top: 100px;
+      }
+      li {
+        margin: 0px;
+        padding-top: 10px;
+        padding-right: 30px;
+        color: #f8f9fa;
+        font-size: 32px;
+      }
+      #movies {
+        padding: 40px;
+      }
+      #images {
+        border: 1px solid black;
+        border-radius: 6px;
+      }
+      aside {
+        background-color: #000c66;
+        width: 250px;
+      }
+      #latest-title {
+        margin: 33px;
+        padding-top: 100px;
+      }
+      #latest-movie {
+        background-color: #7ec8e3;
+        display: flex;
+        justify-content: space-between;
+        width: 1268px;
+      }
+      #latest-aside {
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">MovieApp</h1>
+      <nav>
+        <a href="">En iyi filmler</a>
+        <a href="#latest-title">Latest Released</a>
+        <a href="">Diziler</a>
+        <a href="">Filmler</a>
+      </nav>
+    </header>
+
+    <main>
+      <aside>
+        <ul>
+          <h2 style="color: #248df6; font-size: 36px">Kategoriler</h2>
+          <li>Horror</li>
+          <li>Romantic</li>
+          <li>Dram</li>
+          <li>Science Fiction</li>
+        </ul>
+      </aside>
+      <section>
+        <div id="movies">
+          <a href="batman.html"
+            ><img id="images" src="images/batman.jpg" alt="batman" height="444"
+          /></a>
+          <h2>Batman The Dark Night</h2>
+        </div>
+        <div id="movies">
+          <a href="godfather.html"
+            ><img
+              id="images"
+              src="images/godfather.jpg"
+              alt="godfather"
+              height="444"
+          /></a>
+          <h2>Godfather</h2>
+        </div>
+        <div id="movies">
+          <a href="shawshank.html">
+            <img
+              id="images"
+              src="images/shawshank.jpg"
+              alt="shawshank"
+              height="444"
+          /></a>
+          <h2>Shawshank Redemption</h2>
+        </div>
+      </section>
+    </main>
+
+    <section id="latest">
+      <aside id="latest-aside">
+        <h2 id="latest-title">Latest Released</h2>
+      </aside>
+      <div id="latest-movie">
+        <div id="movies">
+          <a href=""
+            ><img
+              id="images"
+              src="images/sleepingdogs.jpg"
+              alt="sleepingdogs"
+              height="444"
+          /></a>
+          <h2>Sleepingdogs</h2>
+        </div>
+        <div id="movies">
+          <a href=""
+            ><img
+              id="images"
+              src="images/borderlands.jfif"
+              alt="borderlands"
+              height="444"
+              width="400"
+          /></a>
+          <h2>Borderlands</h2>
+        </div>
+        <div id="movies">
+          <a href="">
+            <img
+              id="images"
+              src="images/BackAction.webp"
+              alt="backaction"
+              height="444"
+          /></a>
+          <h2>Back In Action</h2>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
