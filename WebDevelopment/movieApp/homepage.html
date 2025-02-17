@@ -7,6 +7,7 @@
     <style>
       * {
         margin: 0;
+        box-sizing: border-box;
       }
 
       nav {
@@ -24,8 +25,9 @@
         justify-content: space-between;
         background-color: #7ec8e3;
       }
-      section {
+      .sections {
         display: flex;
+        width: 80%;
       }
       #title {
         margin: 21px;
@@ -51,9 +53,17 @@
         border: 1px solid black;
         border-radius: 6px;
       }
-      aside {
+      .asides {
         background-color: #000c66;
-        width: 250px;
+        width: 20%;
+      }
+      #latest {
+        display: flex;
+        justify-content: space-between;
+      }
+      #latest-aside {
+        background-color: #000c66;
+        width: 20%;
       }
       #latest-title {
         margin: 33px;
@@ -62,10 +72,8 @@
       #latest-movie {
         background-color: #7ec8e3;
         display: flex;
-        justify-content: space-between;
-        width: 1268px;
-      }
-      #latest-aside {
+
+        width: 80%;
       }
     </style>
   </head>
@@ -81,7 +89,7 @@
     </header>
 
     <main>
-      <aside>
+      <aside class="asides">
         <ul>
           <h2 style="color: #248df6; font-size: 36px">Kategoriler</h2>
           <li>Horror</li>
@@ -90,7 +98,7 @@
           <li>Science Fiction</li>
         </ul>
       </aside>
-      <section>
+      <section class="sections">
         <div id="movies">
           <a href="batman.html"
             ><img id="images" src="images/batman.jpg" alt="batman" height="444"

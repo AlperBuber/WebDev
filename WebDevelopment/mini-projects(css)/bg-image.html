@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      #showcase {
+        background: url("images/home-bg.jpeg");
+        background-position: center;
+        height: 500px;
+        width: 100%;
+        padding: 10px;
+      }
+
+      #how-it-works {
+        padding: 10px;
+      }
+      #how-it-works__div {
+        text-align: center;
+      }
+      #how-it-works__div h2 {
+        font-size: 36px;
+      }
+
+      .main-header {
+        background-color: gray;
+        padding: 8px 16px;
+      }
+
+      .main-nav {
+        display: inline-block;
+        width: calc(100% - 99px);
+        text-align: right;
+      }
+      .main-nav__items {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .main-nav__item {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      .main-header__logo {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 21px;
+      }
+
+      .main-nav__item a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .main-nav__item a:hover,
+      .main-nav__item:hover::before {
+        color: #2e4c6d;
+      }
+
+      .main-nav__item:active::before,
+      .main-nav__item a:active {
+        color: #fff;
+      }
+
+      .main-nav__item::before {
+        content: "\2022";
+        color: #fff;
+      }
+
+      .main-nav__item--login a {
+        color: #fff;
+        background-color: black;
+        padding: 4px 16px;
+        border-radius: 8px;
+        border: 2px solid #fff;
+      }
+
+      .main-nav__item--login a:hover {
+        color: #2e4c6d;
+        border: 2px solid #2e4c6d;
+        background-color: #fff;
+      }
+
+      .main-nav__item--login::before {
+        content: none;
+      }
+      .row {
+        display: flex;
+        justify-content: space-around;
+      }
+      .icon-box {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .icon-box i {
+        text-align: center;
+        padding: 16px;
+        margin: 8px;
+        font-size: 56px;
+
+        color: #fc997c;
+      }
+
+      .icon-box h1 {
+        font-size: 36px;
+        text-align: center;
+      }
+      .icon-box p {
+        padding: 0 50px;
+      }
+      #icon-box__register {
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="#" class="main-header__logo">MovieApp</a>
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="#">Filmler</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#">Diziler</a>
+          </li>
+          <li class="main-nav__item main-nav__item--login">
+            <a href="#">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="showcase"></section>
+      <section id="how-it-works">
+        <div id="how-it-works__div">
+          <h2>How it works?</h2>
+          <p>
+            We will show you step by step how to start watching your favorite
+            movies & tv shows starting now!
+          </p>
+        </div>
+        <div class="row">
+          <div class="icon-box">
+            <i class="fa-solid fa-right-to-bracket" id="icon-box__register"></i>
+            <h1>Register</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+              corporis minima sint dolore tenetur cupiditate enim voluptas
+              repellendus? Assumenda sequi a, ab laborum iusto blanditiis
+              aliquam fugit unde voluptatibus dolorem?
+            </p>
+          </div>
+          <div class="icon-box">
+            <i class="fa-solid fa-book"></i>
+            <h1>Choose a Plan</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequatur ullam repellendus laudantium aperiam, maxime totam
+              repudiandae corrupti explicabo aliquid nobis adipisci natus, quae
+              debitis, minus culpa accusamus est? Repudiandae, expedita.
+            </p>
+          </div>
+          <div class="icon-box">
+            <i class="fa-regular fa-face-smile"></i>
+            <h1>Enjoy Movies</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+              obcaecati ipsa est similique quos doloremque tempore cupiditate,
+              expedita quis nesciunt assumenda enim quod vitae iste, corporis
+              exercitationem autem earum consequatur.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
