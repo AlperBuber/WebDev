@@ -1,0 +1,26 @@
+img alt etiketlerini doldurmak önemli
+koyulan resimlerin boyutları önemli, boyut küçük olmalı
+
+blok elamanlar satırı olduğu gibi kaplar, p, h, div, span vb.
+
+box-sizing: border-box
+
+w3schooldan emoji eklenebiliyor \hexadecimal kodu ile
+
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+
+font-awesome
+
+PNG şeffaflık destekler JPEG daha küçük dosya boyutu sağlar SVG ölçeklenebilir ve piksellenmez
+display: flex; ile yatay hizalama, justify-content: center; ile merkezleme yapılabilir
+
+mobil uyumluluk --->>> <meta name="viewport" content="width=device-width, initial-scale=1.0"> önemli
+
+transition: all 0.3s ease-in-out; ile yumuşak geçişler 
