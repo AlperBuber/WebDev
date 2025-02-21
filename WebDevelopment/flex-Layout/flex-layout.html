@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        background-color: goldenrod;
+        padding: 20px;
+      }
+      .header h1 {
+        color: white;
+        text-align: center;
+      }
+      .header p {
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .navigation {
+        background-color: #333;
+      }
+      .navigation ul {
+        display: flex;
+        list-style-type: none;
+      }
+      .navigation li a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 20px;
+      }
+      .navigation li a:hover {
+        background-color: #ddd;
+        color: #000;
+      }
+      .main {
+        display: flex;
+        padding: 20px;
+      }
+      .box {
+        margin-top: 15px;
+      }
+      .sidebox {
+        margin-top: 15px;
+      }
+      .content {
+        flex: 75%;
+        padding: 10px;
+        margin-right: 13px;
+      }
+      .sidebar {
+        flex: 25%;
+        padding: 10px;
+      }
+
+      .photo {
+        background-color: #b2afaf;
+        height: 200px;
+        margin: 10px 0px;
+      }
+      .miniphoto {
+        background-color: #b2afaf;
+        height: 50px;
+        margin: 10px 0px;
+      }
+
+      .footer {
+        background-color: goldenrod;
+        padding: 20px;
+      }
+      .footer p {
+        color: white;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        .navigation ul {
+          display: flex;
+          list-style-type: none;
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+        }
+        .main {
+          flex-direction: column;
+        }
+        .sidebar {
+          order: -1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Lorem, ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </header>
+    <nav class="navbar">
+      <nav class="navigation">
+        <ul>
+          <li><a href="">Link1</a></li>
+          <li><a href="">Link2</a></li>
+          <li><a href="">Link3</a></li>
+          <li><a href="">Link4</a></li>
+        </ul>
+      </nav>
+    </nav>
+    <main class="main">
+      <section class="content">
+        <div class="box">
+          <h2>Lorem, ipsum dolor.</h2>
+          <div class="photo"></div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
+            illum magni minus ipsa. Voluptatum ab ipsa delectus atque magnam at
+            officia repudiandae, reprehenderit illo dolores unde sunt expedita.
+            Vitae, repellat!
+          </p>
+        </div>
+        <div class="box">
+          <h2>Lorem, ipsum dolor.</h2>
+          <div class="photo"></div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
+            illum magni minus ipsa. Voluptatum ab ipsa delectus atque magnam at
+            officia repudiandae, reprehenderit illo dolores unde sunt expedita.
+            Vitae, repellat!
+          </p>
+        </div>
+        <div class="box">
+          <h2>Lorem, ipsum dolor.</h2>
+          <div class="photo"></div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
+            illum magni minus ipsa. Voluptatum ab ipsa delectus atque magnam at
+            officia repudiandae, reprehenderit illo dolores unde sunt expedita.
+            Vitae, repellat!
+          </p>
+        </div>
+      </section>
+      <aside class="sidebar">
+        <div class="sidebox">
+          <h2>Lorem, ipsum.</h2>
+          <div class="photo"></div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
+            magni harum dolorem quas molestias consequuntur nesciunt qui,
+            cupiditate excepturi eum assumenda natus eligendi corrupti provident
+            et voluptatem, quos quia voluptate!
+          </p>
+          <div class="miniphoto"></div>
+          <div class="miniphoto"></div>
+          <div class="miniphoto"></div>
+        </div>
+      </aside>
+    </main>
+    <footer class="footer"><p>Lorem, ipsum dolor.</p></footer>
+  </body>
+</html>
