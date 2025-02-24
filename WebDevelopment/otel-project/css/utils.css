@@ -1,0 +1,138 @@
+:root {
+  --white: #fff;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #17a2b8;
+  --dark: #343a40;
+  --light: #f8f9fa;
+}
+
+/* text-color */
+
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-success {
+  color: var(--success);
+}
+.text-danger {
+  color: var(--danger);
+}
+.text-warning {
+  color: var(--warning);
+}
+.text-info {
+  color: var(--info);
+}
+.text-dark {
+  color: var(--dark);
+}
+.text-light {
+  color: var(--light);
+}
+.text-white {
+  color: var(--white);
+}
+
+/* bg-color */
+
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  color: var(--secondary);
+}
+.bg-success {
+  color: var(--success);
+}
+.bg-danger {
+  color: var(--danger);
+}
+.bg-warning {
+  color: var(--warning);
+}
+.bg-info {
+  color: var(--info);
+}
+.bg-dark {
+  color: var(--dark);
+}
+.bg-light {
+  color: var(--light);
+}
+.bg-white {
+  color: var(--white);
+}
+
+/* buttons */
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--dark);
+}
+.btn-outline:hover {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: var(--white);
+}
+
+/* section */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  margin: 2rem 0;
+}
+
+.section-padding {
+  padding: 2rem 2rem 4rem;
+}
+
+.card-body {
+  padding: 32px;
+  text-align: center;
+  color: var(--white);
+  background-color: #ffc107;
+  font-size: 24px;
+}
+.card-body h3 {
+  font-size: 16px;
+}
+#rooms .column {
+  margin: 6px 30px;
+}
+#teams img {
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
