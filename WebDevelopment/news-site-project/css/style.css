@@ -141,10 +141,7 @@ p {
 .grid {
   display: grid;
 }
-.sa {
-  display: grid;
-  grid-template-columns: repeat(1, 2fr);
-}
+
 .item {
   background-color: red;
   padding: 80px;
@@ -184,13 +181,14 @@ p {
   border-radius: 5px;
   padding: 5px;
 }
-.social-icons {
+.navbar .social-icons {
   justify-self: end;
   align-self: center;
 }
 .header {
   background: #333;
   position: relative;
+  padding: 2rem;
 }
 .header::before {
   content: "";
@@ -203,15 +201,134 @@ p {
   opacity: 0.4;
 }
 .header-container {
-  height: 55vh;
-  background: url("../img/rowing.jpeg");
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.4;
+  height: 50vh;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
 }
-.header .header-content {
-  z-index: 2;
+.header-container h1 {
+  font-size: 32px;
+}
+.header-container h1,
+p {
+  color: var(--light);
+}
+#content .container h1 {
+  padding: 20px 0;
+}
+#content .article-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+#content .card p {
+  color: black;
+}
+
+#footer {
+  background-color: var(--dark);
+  margin-top: 20px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    ". . . ."
+    "footer footer footer footer";
+  padding: 10px 0;
+  gap: 20px;
+}
+#footer .footer {
+  grid-area: footer;
+  background-color: #333;
+  text-align: center;
+  color: var(--light);
+  margin: 10px 0;
+  padding: 1rem;
+}
+#footer h1 {
+  color: var(--light);
+}
+#footer .logo img {
+  width: 150px;
+}
+
+#footer input {
+  padding: 0.5rem;
+  margin: 5px 0;
+  width: 90%;
+}
+#footer button {
+  width: 90%;
+}
+#footer ul {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 13px;
+}
+#footer a {
+  color: var(--light);
+}
+#footer li a:hover {
+  color: var(--primary);
+}
+#footer li {
+  border-bottom: 1px solid #5e5d5d;
+}
+.article p {
+  color: #333;
+}
+
+/* article.html */
+
+#article .article-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "article article aside";
+  gap: 20px;
+}
+
+#article .article {
+  grid-area: article;
+}
+#article .join-us {
+  background-color: var(--secondary);
+  padding: 10px;
+}
+#article .join-us h1 {
+  color: var(--light);
+  padding: 0 1.1rem;
+  font-size: 25px;
+}
+
+#article .join-us p {
+  padding: 0 1.5rem;
+}
+#article .join-us button {
+  width: 100%;
+  font-size: 16px;
+}
+
+#article .categories ul {
+  display: flex;
+  flex-direction: column;
+}
+#article .categories ul li {
+  margin: 10px;
+}
+#article .categories ul li a i {
+  margin: 3px;
+}
+
+/* #aritcle .categories ul li a:hover {
+  color: var(--primary);
+} */
+#article .categories ul li a:hover {
+  color: var(--primary);
+}
+#article .article div {
+  display: flex;
+  justify-content: space-between;
 }
