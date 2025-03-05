@@ -1,0 +1,23 @@
+#card-header {
+  border-bottom: none;
+}
+.checkbox-btn input {
+  opacity: 0;
+}
+.checkbox-btn input:checked ~ .btn {
+  background-color: #0d6efd;
+  color: #fff;
+}
+.card .card-header h5 a {
+  text-decoration: none;
+  color: black;
+}
+
+.card .card-body ul {
+  list-style: none;
+}
+.card .card-body ul a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-size: 16px;
+}
