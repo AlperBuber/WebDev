@@ -42,6 +42,14 @@ ul {
 
 .navbar ul li {
   margin-right: 30px;
+  color: #dee2e6;
+}
+.navbar ol li {
+  color: #dee2e6;
+}
+.navbar ol li a {
+  color: #dee2e6;
+  text-decoration: underline;
 }
 #dropdown {
   position: absolute;
@@ -92,4 +100,8 @@ section .card img {
 .tutar {
   display: flex;
   justify-content: space-between;
+}
+
+.checked {
+  color: gold;
 }
