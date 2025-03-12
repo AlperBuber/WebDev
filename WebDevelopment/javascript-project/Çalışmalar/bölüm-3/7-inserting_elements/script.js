@@ -1,50 +1,37 @@
-// 1- insertAdjacentElement
+function insertElements() {
+  const ul = document.querySelector("#myList");
+  const h1 = document.createElement("h1");
+  h1.innerText = "Sayfa Başlığı";
 
-function insertElement() {
-    const ul = document.querySelector("#myList");
-
-    const h1 = document.createElement("h1");
-    h1.textContent = "insertAdjacentElement";
-
-    ul.insertAdjacentElement("beforebegin", h1);
+  ul.insertAdjacentElement("beforebegin", h1);
 }
-// insertElement();
 
-// 2- insertAdjacentText
+// insertElements();
 
 function insertText() {
-    const item = document.querySelector("li:first-child");
-    item.insertAdjacentText("beforebegin", "insertAdjacentText");
+  const li = document.querySelector("li:first-child");
+  li.insertAdjacentText("beforeend", " Sona eklendi");
 }
+
 // insertText();
 
-// 3- insertAdjacentHTML
 function insertHtml() {
-    const item = document.querySelector("li:nth-child(2)");
-    item.insertAdjacentHTML("beforeend", "<h2>insertAdjacentHTML</h2>");
+  const li = document.querySelector("li:last-child");
+  li.insertAdjacentHTML("beforeend", "<input type='checkbox' />");
 }
+
 // insertHtml();
 
-// 4- insertBefore
 function insertBefore() {
-    const ul = document.querySelector("#myList");
+  const ul = document.querySelector("#myList");
 
-    const li = document.createElement("li");
-    li.textContent = "insertBefore";
+  const li = document.createElement("li");
 
-    const secondLi = document.querySelector("li:nth-child(2)");
+  li.textContent = "insertBefore";
 
-    ul.insertBefore(li, secondLi);
+  const li2 = document.querySelector("li:nth-child(2)");
+
+  ul.insertBefore(li, li2);
 }
 
 insertBefore();
-
-/*
-<!-- beforebegin -->  
-    <div>
-        <!-- afterbegin -->      
-        item
-        <!-- beforeend -->
-    </div>
-<!-- afterend -->
-*/
