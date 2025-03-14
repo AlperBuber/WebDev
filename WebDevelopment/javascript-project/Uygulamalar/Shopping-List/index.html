@@ -26,7 +26,13 @@
         </form>
 
         <div class="filter-buttons mb-3">
-          <button item-filter="all" class="btn btn-sm btn-primary">All</button>
+          <button
+            active="true"
+            item-filter="all"
+            class="btn btn-sm btn-primary"
+          >
+            All
+          </button>
           <button item-filter="incomplete" class="btn btn-sm btn-dark">
             Incomplete
           </button>
@@ -34,10 +40,11 @@
             Completed
           </button>
         </div>
-
-        <ul class="shopping-list list-unstyled">
-          <div class="alert alert-danger">Henüz Ürün Eklenmedi</div>
-        </ul>
+        <div id="no-item" class="alert alert-danger">Henüz Ürün Eklenmedi</div>
+        <ul class="shopping-list list-unstyled"></ul>
+        <button id="delete-button" class="btn btn-danger float-end">
+          Clear
+        </button>
       </div>
     </section>
 

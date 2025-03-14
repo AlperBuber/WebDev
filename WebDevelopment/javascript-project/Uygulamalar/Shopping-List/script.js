@@ -4,23 +4,37 @@ const shoppingForm = document.querySelector(".shopping-form");
 
 const filterButtons = document.querySelectorAll(".filter-buttons button  ");
 
+const clearButton = document.getElementById("delete-button");
+
 document.addEventListener("DOMContentLoaded", function () {
   shoppingForm.addEventListener("submit", handleFormSubmit);
   loadItems();
+  updateStates();
 
   for (let button of filterButtons) {
     button.addEventListener("click", filterSelection);
   }
+
+  clearButton.addEventListener("click", deleteButton);
 });
 
+function saveToLS() {
+  const listItems = shoppingList.querySelectorAll("li");
+  const liste = [];
+
+  for (let li of listItems) {
+    const id = li.getAttribute("item-id");
+    const name = li.querySelector(".item-name").textContent;
+    const completed = li.hasAttribute("item-completed");
+
+    liste.push({ id, name, completed });
+  }
+
+  localStorage.setItem("shoppingItems", JSON.stringify(liste));
+}
+
 function loadItems(e) {
-  const items = [
-    { id: 1, name: "Yumurta", completed: true },
-    { id: 2, name: "Süt", completed: false },
-    { id: 3, name: "Çay", completed: false },
-    { id: 3, name: "Zeytin", completed: true },
-  ];
-  shoppingList.innerHTML = "";
+  const items = JSON.parse(localStorage.getItem("shoppingItems")) || [];
 
   for (let item of items) {
     const li = createListItem(item);
@@ -49,6 +63,7 @@ function createListItem(item) {
   icon.addEventListener("click", deleteItem);
 
   const li = document.createElement("li");
+  li.setAttribute("item-id", item.id);
   li.className = "border rounded mb-1 p-3";
   li.toggleAttribute("item-completed", item.completed);
 
@@ -69,6 +84,8 @@ function addItem(input) {
   shoppingList.appendChild(newItem);
   input.value = "";
   updateFilteredItems();
+  saveToLS();
+  updateStates();
 }
 function generateId() {
   return Date.now().toString();
@@ -88,14 +105,19 @@ function handleFormSubmit(e) {
 
 function toggleCompleted(e) {
   const li = e.target.parentElement;
+
   li.toggleAttribute("item-completed", e.target.checked);
   updateFilteredItems();
+  saveToLS();
 }
 
 function deleteItem(e) {
   const li = e.target.parentElement;
 
   shoppingList.removeChild(li);
+  saveToLS();
+
+  updateStates();
 }
 
 function openEditMode(e) {
@@ -107,6 +129,7 @@ function openEditMode(e) {
 
 function closeEditMode(e) {
   e.target.contentEditable = false;
+  saveToLS();
 }
 
 function preventEnter(e) {
@@ -120,8 +143,10 @@ function filterSelection(e) {
   for (let button of filterButtons) {
     button.classList.remove("btn-primary");
     button.classList.add("btn-dark");
+    button.removeAttribute("active");
   }
   e.target.classList.replace("btn-dark", "btn-primary");
+  e.target.setAttribute("active", "true");
   const filterType = e.target.getAttribute("item-filter");
 
   startFiltering(filterType);
@@ -149,4 +174,55 @@ function updateFilteredItems() {
   const activeFilter = document.querySelector(".filter-buttons .btn-primary");
 
   startFiltering(activeFilter.getAttribute("item-filter"));
+}
+
+function updateStates() {
+  const isEmpty = shoppingList.querySelectorAll("li").length === 0;
+  const filterDiv = document.querySelector(".filter-buttons");
+  const alert = document.querySelector(".alert");
+
+  alert.classList.toggle("d-none", !isEmpty);
+  filterDiv.classList.toggle("d-none", isEmpty);
+  clearButton.classList.toggle("d-none", isEmpty);
+}
+
+function clearAllItems() {
+  shoppingList.innerHTML = "";
+  localStorage.clear("shoppingItems");
+  updateStates();
+}
+
+// butona bastı, aktif filter butonu kontrol edecek
+
+// daha sonra eğer all ise inner html "" olacak
+
+// completed döndüyse item-completed leri remove edecek
+// shoppingList üzerinden
+
+function deleteButton() {
+  for (btn of filterButtons) {
+    if (btn.getAttribute("active") === "true") {
+      const filter = btn.getAttribute("item-filter");
+      const allLi = shoppingList.querySelectorAll("li");
+      if (filter == "completed") {
+        for (let li of allLi) {
+          if (li.hasAttribute("item-completed")) {
+            console.log(li);
+            shoppingList.removeChild(li);
+          }
+        }
+      } else if (filter == "incomplete") {
+        for (let li of allLi) {
+          if (!li.hasAttribute("item-completed")) {
+            console.log(li);
+            shoppingList.removeChild(li);
+          }
+        }
+      } else {
+        shoppingList.innerHTML = "";
+        localStorage.clear("shoppingItems");
+        updateStates();
+      }
+    }
+  }
 }
