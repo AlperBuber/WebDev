@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../../bootstrap/bootstrap.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-5">
+        <h1 class="text-center">Shopping List</h1>
+        <form class="shopping-form mb-3 border rounded p-3">
+          <div class="input-group">
+            <input
+              type="text"
+              id="item_name"
+              class="form-control"
+              placeholder="Add Item"
+            />
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="filter-buttons mb-3">
+          <button item-filter="all" class="btn btn-sm btn-primary">All</button>
+          <button item-filter="incomplete" class="btn btn-sm btn-dark">
+            Incomplete
+          </button>
+          <button item-filter="completed" class="btn btn-sm btn-dark">
+            Completed
+          </button>
+        </div>
+
+        <ul class="shopping-list list-unstyled">
+          <div class="alert alert-danger">Henüz Ürün Eklenmedi</div>
+        </ul>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
