@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.app-container {
+  width: 550px;
+}
+
+.option-list {
+  padding: 15px;
+}
+.option-list .option {
+  border: 1px solid #151d3b;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
