@@ -8,9 +8,12 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  flex-direction: column;
 }
 .app-container {
   width: 550px;
+  display: flex;
+  flex-direction: column;
 }
 
 .option-list {
@@ -23,4 +26,44 @@
   font-size: 16px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.option-list .option:hover {
+  background-color: gold;
+}
+.disabled {
+  pointer-events: none;
+}
+
+.option-list .option.correct {
+  opacity: 0.9;
+  background-color: rgb(46, 215, 46);
+}
+.option-list .option.inCorrect {
+  background-color: rgb(240, 82, 82);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* score-box */
+
+#score-box {
+  text-align: center;
+  padding: 30px;
+}
+
+#score-box i {
+  font-size: 90px;
+  color: rgb(29, 29, 248);
+  margin-bottom: 10px;
+}
+
+#score-box .score-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }

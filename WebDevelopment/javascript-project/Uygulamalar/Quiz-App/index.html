@@ -16,38 +16,44 @@
   </head>
   <body>
     <section id="main">
+      <div class="start">
+        <button class="btn btn-warning btn-lg m-5 p-3 btn-start">
+          Start Quiz
+        </button>
+      </div>
       <div class="app-container">
-        <div id="quiz-box" class="card">
-          <div id="header" class="card-header">
+        <div id="quiz-box" class="card d-none">
+          <div id="header" class="card-header d-flex justify-content-between">
             <h4 class="app-title mb-0">Quiz App</h4>
-          </div>
-          <div id="body" class="card-body">
-            <h5 class="question-title">
-              1-Hangisi Javascript paket yönetim uygulamasıdır?
-            </h5>
-            <div class="option-list">
-              <div class="option">
-                <span>a: "react"</span>
-              </div>
-              <div class="option">
-                <span>b: "react"</span>
-              </div>
-              <div class="option">
-                <span>c: "react"</span>
-              </div>
-              <div class="option">
-                <span>d: "react"</span>
+            <div class="time d-flex bg-success border rounded p-1">
+              <div class="time-text text-white p-1">Kalan Süre</div>
+              <div class="time-second ms-2 bg-warning p-1 border rounded">
+                10
               </div>
             </div>
           </div>
-          <div id="footer"></div>
+          <div id="body"></div>
+          <div id="footer" class="card-footer summary">
+            <div class="question-index"></div>
+            <button id="btnSoruGetir" class="btn btn-secondary btn-sm btn-next">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div id="score-box" class="card card-body d-none">
+          <i class="bi bi-trophy"></i>
+          <div class="score-text"></div>
+          <div>
+            <button class="btn btn-primary btn-replay">Replay</button>
+            <button class="btn btn-primary btn-quit">Quit</button>
+          </div>
         </div>
       </div>
     </section>
-    <button id="btnSoruGetir" class="btn btn-danger btn-sm">Soru Getir</button>
 
     <script src="js/soru.js"></script>
     <script src="js/quiz.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
