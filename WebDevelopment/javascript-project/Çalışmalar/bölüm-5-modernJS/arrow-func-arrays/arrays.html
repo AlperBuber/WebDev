@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const sayilar = [1, 3, 4, 5, 7, 8, 1, 21, 3, 45, 6];
+
+      const urunler = [
+        {
+          urunAdi: "iphone 15",
+          fiyat: 50000,
+          siparişNo: "89k21ks23",
+        },
+        {
+          urunAdi: "iphone 16",
+          fiyat: 70000,
+          siparişNo: "123ks*4os",
+        },
+        {
+          urunAdi: "iphone 16 PRO",
+          fiyat: 150000,
+          siparişNo: "04812wkrt2",
+        },
+      ];
+
+      //const tekSayilar = sayilar.filter((sayi) => sayi % 2 == 1);
+      //console.log(tekSayilar);
+
+      //const sonuc = urunler.map((urun) => urun.urunAdi);
+
+      const sonuc = urunler
+        .filter((urun) => urun.fiyat > 50000)
+        .map(
+          (urun) =>
+            `Ürün modeli ${urun.urunAdi} sipariş numarası ${urun.siparişNo}`
+        );
+
+      console.log(sonuc);
+    </script>
+  </body>
+</html>

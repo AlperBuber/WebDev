@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const msj = ["benim", "adım", "alper", "buber"];
+      //ES5
+      let sonuc = "";
+      for (let x of msj) {
+        sonuc += x + " ";
+      }
+      console.log(sonuc);
+
+      //es6
+      console.log(...msj);
+
+      ////
+
+      const dizi1 = ["bir", "iki"];
+      const dizi2 = ["üç", "dört"];
+
+      const dizi3 = [...dizi1, ...dizi2, "beş", "altı"];
+      console.log(dizi3);
+    </script>
+  </body>
+</html>
