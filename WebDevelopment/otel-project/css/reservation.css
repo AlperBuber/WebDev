@@ -1,0 +1,17 @@
+.page-container {
+  max-width: 1100px;
+  margin: 140px auto;
+}
+body {
+  background: linear-gradient(135deg, #8f8e8e, #cccccc);
+}
+
+#forms {
+  color: white;
+  border-radius: 20px;
+}
+
+#side-by-side {
+  display: flex;
+  column-gap: 25px;
+}
