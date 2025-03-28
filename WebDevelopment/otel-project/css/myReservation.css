@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+.page-container {
+  max-width: 1100px;
+  margin: 120px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+h2 {
+  text-align: center;
+  color: #333;
+}
+.reservation {
+  background: #f9f9f9;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+  border-left: 5px solid #28a745;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+}
+.reservation.completed {
+  border-left-color: #007bff;
+}
+.reservation.cancelled {
+  border-left-color: #dc3545;
+  opacity: 0.7;
+}
+.btn-shadow {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
