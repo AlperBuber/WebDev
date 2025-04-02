@@ -163,3 +163,22 @@ Reservation.prototype.displayReservations = function () {
 
   pageContainer.appendChild(reservation);
 };
+
+// const form = document.getElementById("reservationForm");
+
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   let formData = new FormData(this);
+//   let formObject = Object.fromEntries(formData.entries());
+//   console.log(formObject);
+// });
+
+const btnComplete = document.querySelector(".btn-complete");
+
+btnComplete.addEventListener("click", saveReservation);
+
+function saveReservation(e) {
+  e.preventDefault();
+  const name = document.getElementsByName("name");
+  console.log(name.values);
+}

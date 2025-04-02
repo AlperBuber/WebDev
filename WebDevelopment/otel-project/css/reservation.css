@@ -1,16 +1,52 @@
-.page-container {
-  max-width: 1100px;
-  margin: 120px auto;
-}
 body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-#forms {
+.page-container {
+  max-width: 1200px;
+  margin: 100px auto;
+  border-radius: 8px;
+}
+
+.page-container .header img {
+  max-height: 450px;
+}
+strong {
+  font-size: 18px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+small {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.form {
+  padding: 10px 40px;
+}
+
+.form .form-group {
+  margin-bottom: 30px;
+}
+
+.col-md-6 strong {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.amount .margin-top {
+  margin-top: 35px;
+}
+
+.btn-complete {
+  margin-top: 20px;
+  border: 1px solid black;
+}
+.btn-complete:hover {
+  background-color: rgb(65, 65, 65);
+  border: 1px solid black;
   color: white;
-  border-radius: 20px;
-}
-
-#side-by-side {
-  display: flex;
-  column-gap: 25px;
 }
