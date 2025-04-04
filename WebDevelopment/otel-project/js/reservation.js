@@ -5,9 +5,8 @@ function Reservation(
   nOfChild,
   name,
   surname,
-  tckn,
-  email,
   phone,
+  email,
   roomName
 ) {
   this.checkIn = checkIn;
@@ -16,12 +15,18 @@ function Reservation(
   this.nOfChild = nOfChild;
   this.name = name;
   this.surname = surname;
-  this.tckn = tckn;
-  this.email = email;
   this.phone = phone;
-  this.roomName = roomName;
+  this.email = email;
+  this.roomName = "Executive Teras Suit";
 }
 
+const a = document.querySelector(".rezarvasyonBTN a");
+if (a) {
+  this.roomName = a.getAttribute("data-room");
+  console.log(this.roomName);
+}
+
+console.log(this.roomName);
 //date i uygun hale getirme
 
 function formatDate(inputDate) {
@@ -46,10 +51,9 @@ function formatDate(inputDate) {
   return `${day} ${month} ${year}`;
 }
 
-// Kullanım
-
 const pageContainer = document.querySelector(".page-container");
 
+//Rezervasyonları oluşturma kısmı
 Reservation.prototype.displayReservations = function () {
   const checkInDay = formatDate(this.checkIn);
   const checkOutDay = formatDate(this.checkOut);
@@ -66,7 +70,7 @@ Reservation.prototype.displayReservations = function () {
   const p1 = document.createElement("p");
   const strong1 = document.createElement("strong");
   const span1 = document.createElement("span");
-  strong1.textContent = "Oda: ";
+  strong1.textContent = "Room: ";
   p1.appendChild(strong1);
   span1.textContent = this.roomName;
   p1.appendChild(span1);
@@ -75,18 +79,19 @@ Reservation.prototype.displayReservations = function () {
   const p2 = document.createElement("p");
   const strong2 = document.createElement("strong");
   const span2 = document.createElement("span");
-  strong2.textContent = "Kişi Sayısı: ";
+  strong2.textContent = "Total Guests: ";
   p2.appendChild(strong2);
-  span2.textContent = this.nOfAdult + this.nOfChild;
+  span2.textContent = parseInt(this.nOfAdult, 10) + parseInt(this.nOfChild, 10);
   p2.appendChild(span2);
 
   //Rezervasyon Durumu P
   const p3 = document.createElement("p");
   const strong3 = document.createElement("strong");
   const span3 = document.createElement("span");
-  strong3.textContent = "Durum: ";
+  p3.id = "situation";
+  strong3.textContent = "Situation: ";
   p3.appendChild(strong3);
-  span3.textContent = "Aktif";
+  span3.textContent = "Active";
   p3.appendChild(span3);
 
   //p leri dive ekleme
@@ -103,7 +108,7 @@ Reservation.prototype.displayReservations = function () {
   const p4 = document.createElement("p");
   const strong4 = document.createElement("strong");
   const span4 = document.createElement("span");
-  strong4.textContent = "Tarih: ";
+  strong4.textContent = "From / To: ";
   p4.appendChild(strong4);
   span4.textContent = `${checkInDay} - ${checkOutDay}`;
   p4.appendChild(span4);
@@ -112,7 +117,7 @@ Reservation.prototype.displayReservations = function () {
   const p5 = document.createElement("p");
   const strong5 = document.createElement("strong");
   const span5 = document.createElement("span");
-  strong5.textContent = "İletişim Numarası: ";
+  strong5.textContent = "Contact Number: ";
   p5.appendChild(strong5);
   span5.textContent = this.phone;
   p5.appendChild(span5);
@@ -122,7 +127,7 @@ Reservation.prototype.displayReservations = function () {
   const p6 = document.createElement("p");
   const strong6 = document.createElement("strong");
   const span6 = document.createElement("span");
-  strong6.textContent = " İsim: ";
+  strong6.textContent = " Full Name: ";
   p6.appendChild(strong6);
   span6.textContent = this.name + " " + this.surname;
   p6.appendChild(span6);
@@ -164,21 +169,39 @@ Reservation.prototype.displayReservations = function () {
   pageContainer.appendChild(reservation);
 };
 
-// const form = document.getElementById("reservationForm");
+//rezervasyon iptali
 
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   let formData = new FormData(this);
-//   let formObject = Object.fromEntries(formData.entries());
-//   console.log(formObject);
-// });
+Reservation.prototype.cancelReservation = function () {
+  const reservationDiv = document.querySelector(".reservation");
+  const situationText = document.querySelector("#situation span");
+  reservationDiv.classList.toggle("cancelled");
+  situationText.textContent = "Cancelled";
+};
 
-const btnComplete = document.querySelector(".btn-complete");
+//form üzerinden verileri locale kaydetme
+const form = document.getElementById("reservationForm");
 
-btnComplete.addEventListener("click", saveReservation);
+form.addEventListener("submit", function (e) {
+  let formData = new FormData(this);
+  let formObject = Object.fromEntries(formData.entries());
+  formObject.nOfAdult = parseInt(formObject.nOfAdult, 10);
+  formObject.nOfChild = parseInt(formObject.nOfChild, 10);
 
-function saveReservation(e) {
-  e.preventDefault();
-  const name = document.getElementsByName("name");
-  console.log(name.values);
-}
+  let storedReservations = localStorage.getItem("reservationList");
+
+  // Eğer localStorage boşsa, yeni bir dizi başlat
+  let reservations = storedReservations ? JSON.parse(storedReservations) : [];
+
+  // Eğer reservations bir dizi değilse, düzelt
+  if (!Array.isArray(reservations)) {
+    console.warn("LocalStorage'daki veri bozuktu, sıfırlanıyor...");
+    reservations = []; // Bozuksa yeni bir dizi oluştur
+  }
+
+  // Yeni rezervasyonu diziye ekle
+  reservations.push(formObject);
+
+  // Güncellenmiş listeyi tekrar kaydet
+  localStorage.setItem("reservationList", JSON.stringify(reservations));
+  alert("Rezervasyon başarıyla oluşturulmuştur");
+});

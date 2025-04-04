@@ -225,6 +225,18 @@ img {
   margin-bottom: 0.5rem;
 }
 
+.column img {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.column .card-body {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+#contact {
+  margin-top: 50px;
+}
+
 @media (max-width: 600px) {
   .row {
     flex-direction: column;

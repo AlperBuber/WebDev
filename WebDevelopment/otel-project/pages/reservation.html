@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="../css/utils.css" />
     <link rel="stylesheet" href="../css/reservation.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -32,8 +33,7 @@
               <li><a href="../homepage.html">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="./rooms.html">Rooms</a></li>
-              <li><a href="blog.html">Blogs</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="./myReservations.html">Reservations</a></li>
             </ul>
           </nav>
         </div>
@@ -150,7 +150,11 @@
                 <div class="col-md-6">
                   <strong>Period</strong>
                   <span class="text-danger">*</span>
-                  <select name="period" id="period" class="form-select">
+                  <select
+                    name="checkInPeriod"
+                    id="checkInPeriod"
+                    class="form-select"
+                  >
                     <option value="morning">Morning</option>
                     <option value="afternoon">Afternoon</option>
                     <option value="night">Night</option>
@@ -166,7 +170,11 @@
                 <div class="col-md-6">
                   <strong>Period</strong>
                   <span class="text-danger">*</span>
-                  <select name="period" id="period" class="form-select">
+                  <select
+                    name="checkOutPeriod"
+                    id="checkOutPeriod"
+                    class="form-select"
+                  >
                     <option value="morning">Morning</option>
                     <option value="afternoon">Afternoon</option>
                     <option value="night">Night</option>
@@ -205,15 +213,16 @@
                       class="border rounded"
                     />
                   </div>
-                  <div class="col-md-8 margin-top">
+                  <div class="col-md-8 margin-top d-flex flex-column">
                     <strong>Deluxe Suit</strong>
+                    <strong class="ms-1">$100 / night</strong>
                   </div>
                   <div class="col-md-2 margin-top">
                     <strong>Total: <span>14$</span> </strong>
                   </div>
                   <div class="col-md-12 d-flex justify-content-end">
                     <button class="btn btn-complete" type="submit">
-                      Rezervasyonu Tamamla
+                      Complete Reservation
                     </button>
                   </div>
                 </div>
@@ -222,6 +231,15 @@
           </div>
         </div>
       </section>
+      <footer class="footer bg-light">
+        <div class="social">
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+        <p style="color: black">Copyright &copy 2025 - Hotel Site</p>
+      </footer>
     </main>
     <script src="../js/reservation.js"></script>
   </body>
