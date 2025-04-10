@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //fiyatı 50den büyük nesne elemanlarını getir
+
+      const urunler = {
+        laptop: 15000,
+        kulaklik: 350,
+        mouse: 45,
+        klavye: 60,
+        sarjCihazi: 30,
+      };
+
+      const arrUrunler = Object.entries(urunler);
+
+      console.log(arrUrunler);
+
+      const expensiveItems = arrUrunler.filter(
+        ([urunadi, fiyat]) => fiyat > 50
+      );
+      console.log(expensiveItems);
+
+      const nesne = {
+        ad: "Ali",
+        yas: 30,
+        sehir: "İstanbul",
+      };
+
+      console.log(nesne.map((nesne) => nesne));
+    </script>
+  </body>
+</html>

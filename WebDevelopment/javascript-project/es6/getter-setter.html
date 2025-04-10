@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Kisi {
+        constructor(ad, meslek, dogumYili) {
+          this.ad = ad;
+          this.meslek = meslek;
+          this.dogumYili = dogumYili;
+        }
+
+        yasHesapla() {
+          let tarih = new Date().getFullYear();
+          return tarih - this._dogumYili;
+        }
+
+        get ad() {
+          return this._ad;
+        }
+
+        set ad(value) {
+          if (value.length < 3) {
+            console.log("Ad için çok az karakter");
+            return;
+          }
+          this._ad = value;
+        }
+
+        get dogumYili() {
+          return _dogumYili;
+        }
+
+        set dogumYili(value) {
+          if (value < 1900) {
+            console.log("Doğum yılı 1900 öncesi olamaz");
+            return;
+          }
+
+          this._dogumYili = value;
+        }
+      }
+
+      const alper = new Kisi("Alper", "Mühendis", 1800);
+    </script>
+  </body>
+</html>

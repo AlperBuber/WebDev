@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Set yapıları birden fazla tekrar eden veri saklamadığından benzersiz veri yapıları gerektiğinde kullanılması gereken bir es6 fonskiyonudur.
+      //aynı zamanda birden fazla çeşit veri türü saklayabiliyor
+      const sayilar = new Set();
+
+      sayilar.add(1);
+      sayilar.add(2);
+      sayilar.add(3);
+      sayilar.add("Alper");
+      sayilar.add(true);
+      const object = { ...sayilar };
+      const dizi = [...sayilar];
+
+      const filter = dizi.filter((sayi) => sayi > 2);
+      console.log(filter);
+
+      const kullanicilar = [
+        { ad: "Ahmet", aktif: true },
+        { ad: "Mehmet", aktif: false },
+        { ad: "Zeynep", aktif: true },
+      ];
+
+      const trueS = kullanicilar.filter((k) => k.ad);
+      console.log(trueS);
+    </script>
+  </body>
+</html>
