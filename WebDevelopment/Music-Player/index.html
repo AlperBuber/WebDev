@@ -8,17 +8,24 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="container">
       <img id="music-image" src="" alt="" />
       <audio src="" id="audio"></audio>
       <div id="music-details">
         <p class="title"></p>
         <p class="singer"></p>
-        <div id="controls">
-          <i id="prev" class="fa-solid fa-backward-step"></i>
-          <i id="play" class="fa-solid fa-play"></i>
-          <i id="next" class="fa-solid fa-forward-step"></i>
+      </div>
+      <div id="progress">
+        <input type="range" id="progress-bar" />
+        <div class="times">
+          <span id="current-time">0:00</span>
+          <span id="duration">3:10</span>
         </div>
+      </div>
+      <div id="controls">
+        <i id="prev" class="fa-solid fa-backward-step"></i>
+        <i id="play" class="fa-solid fa-play"></i>
+        <i id="next" class="fa-solid fa-forward-step"></i>
       </div>
     </div>
 
