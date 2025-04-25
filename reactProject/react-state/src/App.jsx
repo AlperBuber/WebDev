@@ -3,11 +3,10 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./index.css";
 import Header from "./components/header";
 import AddItemForm from "./components/AddItemForm";
-import NoItem from "./components/NoItem";
 import FilterButtons from "./components/FilterButtons";
 import ListItems from "./components/ListItems";
 import ClearButton from "./components/ClearButton";
-import { useState } from "react";
+import { act, useState } from "react";
 
 const urunler = [
   {
@@ -40,7 +39,7 @@ const urunler = [
 
 export default function App() {
   const [items, setItems] = useState(urunler);
-  const [activeButton, setActiveButton] = useState("All");
+  const [activeButton, setActiveButton] = useState("all");
 
   function handleDeleteButton(itemId) {
     setItems(items.filter((item) => item.id != itemId));
@@ -59,7 +58,14 @@ export default function App() {
   }
 
   function handleClearButton() {
-    setItems([]);
+    console.log(activeButton);
+    if (activeButton == "all") {
+      setItems([]);
+    } else if (activeButton == "incomplete") {
+      setItems(items.filter((item) => item.completed != false));
+    } else {
+      setItems(items.filter((item) => item.completed != true));
+    }
   }
 
   return (
