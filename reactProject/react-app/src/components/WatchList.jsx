@@ -1,9 +1,9 @@
-import WatchListMovie from "./WatchListMovie.jsx";
+import WatchListMovie from "./WatchListMovie";
 
 export default function WatchList({
-  watchList,
+  movies,
   isWatchListOpen,
-  onHandleRemoveFromWatchlist,
+  onRemoveFromWatchList,
 }) {
   return (
     <>
@@ -11,21 +11,24 @@ export default function WatchList({
         <div className="container my-3">
           <div className="card">
             <div className="card-header">
-              <h3 className="title h5 mb-0 ">Watch List</h3>
+              <h2 className="title h5 mb-0">Watch List</h2>
             </div>
             <div className="card-body">
-              {watchList.filter((m) => m.isActive).length != 0 ? (
-                <div className="movie-list row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                  {watchList.map((movie) => (
+              {movies.length == 0 ? (
+                <div>Film bulunamadı</div>
+              ) : (
+                <div
+                  id="movie-list"
+                  className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4"
+                >
+                  {movies.map((m, index) => (
                     <WatchListMovie
-                      key={movie.id}
-                      movieObj={movie}
-                      onHandleRemoveFromWatchlist={onHandleRemoveFromWatchlist}
+                      key={index}
+                      movieObj={m}
+                      onRemoveFromWatchList={onRemoveFromWatchList}
                     />
                   ))}
                 </div>
-              ) : (
-                <div>Film Bulunamadı</div>
               )}
             </div>
           </div>

@@ -1,4 +1,4 @@
-export default function WatchListButton({ watchList, onSetIsWatchListOpen }) {
+export default function WatchListButton({ movies, onSetIsWatchListOpen }) {
   return (
     <div className="mb-2 mb-lg-0 ms-1">
       <button
@@ -8,7 +8,7 @@ export default function WatchListButton({ watchList, onSetIsWatchListOpen }) {
       >
         <i className="bi bi-heart"></i>
         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {watchList.length}
+          {movies.length}
         </span>
       </button>
     </div>

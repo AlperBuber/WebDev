@@ -1,41 +1,35 @@
-import { useState } from "react";
-
-export default function WatchListMovie({
-  movieObj,
-  onHandleRemoveFromWatchlist,
-}) {
+export default function WatchListMovie({ movieObj, onRemoveFromWatchList }) {
   return (
-    <>
-      {movieObj.isActive && (
-        <div className="col">
-          <div className="movie card position-relative">
-            <img
-              src={"/img/" + movieObj.image}
-              alt=""
-              className="card-img-top"
-            />
-            <div className="card-body">
-              <div className="card-title d-flex justify-content-between align-items-center">
-                <h4 className="">{movieObj.title}</h4>
-                <button
-                  onClick={() => onHandleRemoveFromWatchlist(movieObj)}
-                  type="button"
-                  className="btn btn-light border favorite-button"
-                >
-                  <i className="bi bi-heart-fill  top-0 end-0"></i>
-                </button>
-              </div>
-
-              <p className="card-text mb-0">{movieObj.description}</p>
-              {movieObj.isNew && (
-                <span className="badge bg-danger position-absolute top-0 end-0 m-2">
-                  New
-                </span>
-              )}
+    <div className="col">
+      {
+        <div className="card movie position-relative">
+          <img
+            src={
+              "https://image.tmdb.org/t/p/original/" + movieObj.backdrop_path
+            }
+            alt=""
+            className="card-img-top"
+          />
+          <div className="card-body" id="movie-card-body">
+            <div className="card-title d-flex justify-content-between align-items-center">
+              <h4 className="">{movieObj.title}</h4>
+              <button
+                onClick={() => onRemoveFromWatchList(movieObj)}
+                type="button"
+                className="btn btn-light border favorite-button"
+              >
+                <i className="bi bi-heart-fill "></i>
+              </button>
             </div>
+            {movieObj.is_new && (
+              <span className="position-absolute top-0 end-0 badge bg-danger m-1">
+                New
+              </span>
+            )}
+            <div className="card-text">{movieObj.overview}</div>
           </div>
         </div>
-      )}
-    </>
+      }
+    </div>
   );
 }

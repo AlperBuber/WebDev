@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark text-center text-white border-top border-body">
       <div className="container p-4">
-        <section className="mb-0">
+        <section className="mb-4">
           <a
             className="btn btn-outline-light btn-floating m-1"
             href="#!"

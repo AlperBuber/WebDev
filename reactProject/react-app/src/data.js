@@ -1,42 +1,35 @@
-export const movieList = [
+export const movie_list = [
   {
     id: 1,
     image: "1.jpg",
     title: "Kaptan Amerika",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
-
-    isActive: true,
-    isNew: true,
+    description: "Güzel bir film",
+    is_active: true,
+    is_new: true,
   },
   {
     id: 2,
     image: "2.jpg",
     title: "Araba Hırsızları",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
-
-    isActive: true,
-    isNew: false,
+    description: "Güzel bir film",
+    is_active: true,
+    is_new: true,
   },
   {
     id: 3,
     image: "3.jpg",
-    title: "Codes Of War",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
-    isActive: true,
-    isNew: true,
+    title: "Araba Hırsızları",
+    description: "Güzel bir film",
+    is_active: true,
+    is_new: false,
   },
   {
     id: 4,
     image: "4.jpg",
-    title: "Moana 2",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
-
-    isActive: true,
-    isNew: true,
+    title: "Araba Hırsızları",
+    description: "Güzel bir film",
+    is_active: true,
+    is_new: true,
   },
   {
     id: 5,
@@ -45,8 +38,8 @@ export const movieList = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
 
-    isActive: true,
-    isNew: false,
+    is_active: true,
+    is_new: false,
   },
   {
     id: 6,
@@ -55,7 +48,7 @@ export const movieList = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, officia.",
 
-    isActive: true,
-    isNew: true,
+    is_active: true,
+    is_new: true,
   },
 ];

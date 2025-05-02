@@ -1,11 +1,30 @@
 .title {
-  color: red;
+  color: brown;
 }
+
+.new {
+  border: 1px solid red;
+  padding: 10px;
+}
+
 .f30 {
   font-size: 30px;
 }
-.red {
-  color: red;
+.card-title h4 {
+  height: 4.5em; /* Yükseklik sabit, örneğin 2 satıra yetecek kadar */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Maksimum 2 satır */
+  -webkit-box-orient: vertical;
+  display: flex;
+  align-items: center;
 }
-.new {
+.card-text {
+  max-height: 7.5em; /* Satır yüksekliğine göre ayarla (7 satır x ~1.5em) */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
