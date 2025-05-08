@@ -26,7 +26,6 @@ export default function WatchListMovie({ movieObj, onRemoveFromWatchList }) {
                 New
               </span>
             )}
-            <div className="card-text">{movieObj.overview}</div>
           </div>
         </div>
       }
