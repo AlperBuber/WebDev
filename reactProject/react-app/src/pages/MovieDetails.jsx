@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router";
+import { Link, NavLink, useParams } from "react-router";
 import ErrorMessage from "../components/ErrorMessage";
 import Loading from "../components/loading";
-import MovieList from "../components/MovieList";
+import SimilarMovieList from "../components/SimilarMovieList";
 
 const apiUrl = "https://api.themoviedb.org/3";
 const api_key = "64b7db714e0ab0379c4f50f7b4ecb2f7";
-const language = "tr-TR";
+const language = "en-EN";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -50,6 +50,8 @@ const MovieDetails = () => {
     if (p < 75) return "orange";
     return "green";
   };
+
+  console.log(movie);
 
   const runtime = movie.runtime ? Math.floor(movie.runtime / 60) : "";
   const runtimeMinutes = movie.runtime ? movie.runtime % 60 : 0;
@@ -153,9 +155,72 @@ const MovieDetails = () => {
                       ))}
                   </div>
                 </div>
-                <div>
-                  <h1>Similar Films</h1>
-                  <MovieList movieId={id} />
+                <div className="row">
+                  <div className="crew-list col-lg-10 col-12 mx-auto">
+                    <h4 className="card-title mt-4 text-dark mb-3">
+                      Featured Players
+                    </h4>
+                    <div className="d-flex gap-4" id="actor-list">
+                      {movie.credits?.cast?.slice(0, 6).map((actor) => (
+                        <div
+                          className="card flex-shrink"
+                          style={{ width: "9.0rem" }}
+                          key={actor.id}
+                        >
+                          <Link
+                            to={`/person/${actor.id}`}
+                            className="text-decoration-none"
+                          >
+                            <img
+                              id="actor-img"
+                              src={
+                                actor.profile_path
+                                  ? "https://image.tmdb.org/t/p/original/" +
+                                    actor.profile_path
+                                  : "https://www.drnitinborse.com/wp-content/uploads/2018/02/user-icon-300x300.png"
+                              }
+                              className="card-img-top"
+                            />
+                          </Link>
+                          <div className="card-body">
+                            <Link
+                              to={`/person/${actor.id}`}
+                              className="text-decoration-none text-dark"
+                            >
+                              <p className="card-title text-dark fw-bold">
+                                {actor.name}
+                              </p>
+                              <p className="card-text">{actor.character}</p>
+                            </Link>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="allCast">
+                      <Link
+                        to={`/movie/${id}/cast`}
+                        className="btn btn-outline-light mt-3 text-dark p-0 "
+                      >
+                        <p className="fw-bold text-decoration-underline">
+                          Show Full Credits {" >"}
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="side-bar col-lg-2 col-5  text-dark mt-5">
+                    <p className="fw-bold mb-0 mt-3">Original Title</p>
+                    <p>{movie.original_title}</p>
+                    <p className="fw-bold mb-0">Status</p>
+                    <p>{movie.status}</p>
+                    <p className="fw-bold mb-0">Budget</p>
+                    <p>${movie.budget}</p>
+                    <p className="fw-bold mb-0">Revenue</p>
+                    <p>${movie.revenue}</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-dark">Similar Films</h4>
+                  <SimilarMovieList movieId={id} />
                 </div>
               </div>
             ) : (

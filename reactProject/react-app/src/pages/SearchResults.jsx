@@ -1,11 +1,5 @@
-import React, { use, useCallback, useEffect, useState } from "react";
-import {
-  Link,
-  NavLink,
-  useParams,
-  useNavigate,
-  useSearchParams,
-} from "react-router";
+import React, { useCallback, useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams, useSearchParams } from "react-router";
 import Loading from "../components/loading";
 import ErrorMessage from "../components/ErrorMessage";
 import Movie from "../components/Movie";
@@ -15,29 +9,25 @@ import Stack from "@mui/material/Stack";
 
 const apiUrl = "https://api.themoviedb.org/3";
 const api_key = "64b7db714e0ab0379c4f50f7b4ecb2f7";
+const language = "tr-TR";
 
-const language = "en-EN";
-
-const Movies = () => {
-  const [totalPages, setTotalPages] = useState(0);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const category = searchParams.get("category") || "popular";
-  const page = searchParams.get("page") || "1";
-
-  const currentCategory = category || "popular";
-  const currentPage = page || "1";
-
+const SearchResults = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
+
+  const [totalPages, setTotalPages] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("q") || "";
+  const page = searchParams.get("page") || "1";
 
   const callbackMovies = useCallback(async () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `${apiUrl}/movie/${currentCategory}?api_key=${api_key}&page=${currentPage}&language=${language}`
+        `${apiUrl}/search/movie?api_key=${api_key}&query=${query}&page=${page}&language=${language}`
       );
       if (response.status === 404) {
         throw new Error(
@@ -72,10 +62,6 @@ const Movies = () => {
       const data = await response.json();
       if (data.results.length != 0) {
         setMovies(data.results);
-      }
-      if (data.total_pages > 500) {
-        setTotalPages(500);
-      } else {
         setTotalPages(data.total_pages);
       }
       setError("");
@@ -83,7 +69,7 @@ const Movies = () => {
       setError(error.message);
     }
     setIsLoading(false);
-  }, [category, currentPage]);
+  }, [query, page]);
 
   useEffect(() => {
     callbackMovies();
@@ -93,28 +79,17 @@ const Movies = () => {
     return <Loading />;
   }
 
-  function getCategoryTitle(category) {
-    switch (category) {
-      case "now_playing":
-        return "On Screen";
-
-      case "top_rated":
-        return "Most Rated";
-      default:
-        return category.charAt(0).toUpperCase() + category.slice(1);
-    }
-  }
-  const categoryTitle = getCategoryTitle(currentCategory);
-
-  function handlePageChange(event, value) {
-    navigate(`/movies?category=${currentCategory}&page=${value}`);
-  }
+  const handlePageChange = (event, value) => {
+    navigate(`/search?q=${query}&page=${value}`);
+  };
 
   return (
     <div className="container my-3">
       <div className="card border-0">
         <div className="card-header border-0">
-          <h2 className="card-title h2 mb-0">{`${categoryTitle} Movies`}</h2>
+          <h2 className="card-title h2 mb-0">{`Arama Sonuçları: ${query
+            .charAt(0)
+            .toLocaleUpperCase()}${query.slice(1)}`}</h2>
         </div>
         <div className="card-body border-0">
           {movies.length == 0 ? (
@@ -131,16 +106,13 @@ const Movies = () => {
           )}
         </div>
       </div>
-
       <div className="d-flex justify-content-center mt-3 mb-5">
         <Stack spacing={2}>
           <Pagination
             variant="outlined"
             count={totalPages}
             onChange={handlePageChange}
-            page={Number(currentPage)}
-            boundaryCount={1}
-            siblingCount={2}
+            page={Number(page)}
           />
         </Stack>
       </div>
@@ -148,4 +120,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default SearchResults;

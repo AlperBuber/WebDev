@@ -1,14 +1,19 @@
 import Logo from "./Logo";
-import { NavLink } from "react-router";
+import { NavLink, useSearchParams } from "react-router";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import SearchForm from "./SearchForm";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+import WatchListButton from "./WatchListButton";
 
 export default function Navbar() {
+  const { theme } = useContext(ThemeContext);
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light bg-dark py-2 m-0"
-      data-bs-theme="dark"
+      className={`navbar navbar-expand-lg navbar-light bg-${theme} py-2 m-0`}
+      data-bs-theme={theme}
     >
-      <div className="container">
+      <div className="container d-flex justify-content-between">
         <Logo />
 
         <button
@@ -22,17 +27,20 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+        <div
+          className="collapse navbar-collapse flex justify-content-between"
+          id="navbarNav"
+        >
+          <ul className="navbar-nav ">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <a className="nav-link text-white" href="/">
                 Home
-              </NavLink>
+              </a>
             </li>
 
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle text-white"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -42,40 +50,44 @@ export default function Navbar() {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <NavLink className="dropdown-item" to="/movies/popular/1" end>
+                  <a
+                    className="dropdown-item"
+                    href="/movies?category=popular&page=1"
+                  >
                     Popular
-                  </NavLink>
+                  </a>
                 </li>
                 <li>
-                  <NavLink
+                  <a
                     className="dropdown-item"
-                    to="/movies/now_playing/1"
-                    end
+                    href="/movies?category=now_playing&page=1"
                   >
                     On Screen
-                  </NavLink>
+                  </a>
                 </li>
                 <li>
-                  <NavLink
+                  <a
                     className="dropdown-item"
-                    to="/movies/upcoming/1"
-                    end
+                    href="/movies?category=upcoming&page=1"
                   >
                     Upcoming
-                  </NavLink>
+                  </a>
                 </li>
                 <li>
-                  <NavLink
+                  <a
                     className="dropdown-item"
-                    to="/movies/top_rated/1"
-                    end
+                    href="/movies?category=top_rated&page=1"
                   >
                     Most Rated
-                  </NavLink>
+                  </a>
                 </li>
               </ul>
             </li>
           </ul>
+          <div className="d-flex">
+            <SearchForm />
+            <WatchListButton />
+          </div>
         </div>
       </div>
     </nav>

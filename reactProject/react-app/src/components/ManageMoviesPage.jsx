@@ -1,47 +1,61 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
-const ManageMoviesPage = (category, page) => {
+const ManageMoviesPage = ({
+  currentCategory,
+  currentPage,
+  totalPages,
+  query,
+}) => {
+  const navigate = useNavigate();
+
+  const handlePrevPage = () => {
+    if (query) {
+      navigate(
+        `/search?q=${encodeURIComponent(query)}&page=${
+          parseInt(currentPage) - 1
+        }`
+      );
+    } else {
+      navigate(
+        `/movies?category=${currentCategory}&page=${parseInt(currentPage) - 1}`
+      );
+    }
+  };
+
+  const handleNextPage = () => {
+    if (query) {
+      navigate(
+        `/search?q=${encodeURIComponent(query)}&page=${
+          parseInt(currentPage) + 1
+        }`
+      );
+    } else {
+      navigate(
+        `/movies?category=${currentCategory}&page=${parseInt(currentPage) + 1}`
+      );
+    }
+  };
   return (
-    <nav aria-label="Sayfa navigasyonu" className="mt-4">
-      <ul className="pagination justify-content-center">
-        <li className="page-item disabled">
-          <Link className="page-link" to="#" tabIndex="-1">
-            «
-          </Link>
-        </li>
-        <li className="page-item active">
-          <Link className="page-link" to={`/movies/${category}/1`}>
-            1
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link className="page-link" to={`/movies/${category}/2`}>
-            2
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link className="page-link" to={`/movies/${category}/3`}>
-            3
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link className="page-link" to={`/movies/${category}/4`}>
-            4
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link className="page-link" to={`/movies/${category}/5`}>
-            5
-          </Link>
-        </li>
-        <li className="page-item">
-          <Link className="page-link" to="#">
-            »
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <div className="pagination  d-flex flex-column align-items-center">
+      <div className="totalAndCurrent-pages">
+        <span>
+          {currentPage} / {totalPages}
+        </span>
+      </div>
+      <div className="pagination-buttons mt-3">
+        <button
+          className="btn btn-primary btn-sm me-2"
+          onClick={handlePrevPage}
+          disabled={parseInt(currentPage) === 1}
+        >
+          Geri
+        </button>
+        <button className="btn btn-primary btn-sm" onClick={handleNextPage}>
+          İleri
+        </button>
+      </div>
+    </div>
   );
 };
 

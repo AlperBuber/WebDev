@@ -1,6 +1,23 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { UserContext } from "../contexts/UserContext";
+import { useLocation } from "react-router";
 
 export default function Movie({ movieObj }) {
+  const { watchList, addToWatchList, removeFromWatchList } =
+    useContext(UserContext);
+
+  const location = useLocation();
+  const isFavoritesPage = location.pathname === "/favorites";
+
+  function handleAddOrRemoveMovie() {
+    const isInWatchList = watchList.some((movie) => movie.id === movieObj.id);
+    if (isInWatchList && isFavoritesPage) {
+      removeFromWatchList(movieObj);
+    } else {
+      addToWatchList(movieObj);
+    }
+  }
   function formatDate(dateString) {
     const months = [
       "Jan",
@@ -38,8 +55,8 @@ export default function Movie({ movieObj }) {
               alt=""
               className="card-img-top "
               style={{
-                height: "300px", // istediğin yükseklik
-                objectFit: "cover", // kırpma/kapsama modu
+                height: "300px",
+                objectFit: "cover",
               }}
             />
           </Link>
@@ -56,10 +73,15 @@ export default function Movie({ movieObj }) {
           </div>
           <div className="favorite-button">
             <button
+              onClick={handleAddOrRemoveMovie}
               type="button"
               className="btn position-absolute top-0 end-0 badge bg-dark m-1"
             >
-              <i className="bi bi-heart "></i>
+              <i
+                className={`bi ${
+                  isFavoritesPage ? "bi-heart-fill" : "bi-heart"
+                }`}
+              ></i>
             </button>
           </div>
         </div>
